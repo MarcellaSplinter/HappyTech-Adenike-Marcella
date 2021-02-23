@@ -1,0 +1,152 @@
+
+body{
+    font:15px/1.5 Arial, Helvetica, Sans-serif;
+    padding:0;
+    margin:0;
+    background-color:#82bfdb;
+}
+
+/* Global */
+
+.container {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+
+}
+
+ul{
+    margin: 0%;
+    padding: 0%;
+}
+/* Header */
+
+
+header{
+    background: #f4f4f4;
+    color: black;
+    padding-top: 0%;
+    min-height: 100px;
+    border-bottom: #ffffff;
+
+
+}
+
+header a{
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 15x;
+}
+    header li{
+        margin-left: 50px;
+        display: inline;
+        
+        margin-bottom: 0;
+
+        
+    }
+
+    header #Title{
+        text-align: center;
+        margin-top: 60px;
+        font-size: 40px;
+        font-weight: normal;
+        font-family: 'Times New Roman', Times, serif;
+
+
+
+    }
+        
+        
+    
+
+    h1{
+        
+        padding-top: 20px;
+        min-height: 50px;
+        border-bottom: #ffffff;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 60px;
+        font-weight: bold;
+        font-style: normal;
+        
+
+    }
+
+    header nav{
+        margin-left: 20px;
+        margin-top: 100px;
+        
+        
+        
+    }
+
+    header .current a{
+        color:orangered;
+        font-weight: bold;
+
+
+    }
+
+    header a:hover{
+        color: slategrey;
+        font-weight: bold;
+
+    }
+        
+.main{
+    background:#f4f4f4;
+    min-height: 300px;
+    margin-top: 20px;
+    
+
+
+}
+
+#info{
+    margin-left: 300px;
+}
+
+.main nav{
+    
+    min-height: 300px;
+    padding-left: 25%;
+    margin-top: 0;
+    
+    width: 100px;
+    margin-left: 30px;
+    padding: 0 20px 0 20px;
+    
+}
+
+.New{
+    margin-left: 200px;
+}
+
+textarea{
+    text-align: justify;
+    margin-left: 250px;
+}
+
+input a:hover{
+    color: blue;
+
+}
+
+#table{
+    margin-top: 60px;
+}
+
+#table thead{
+    font-size: 15px;
+}
+
+
+    
+
+
+
+
+
