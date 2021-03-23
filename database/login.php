@@ -1,5 +1,5 @@
 <?php
-ob_start(); // is it essential?
+ob_start(); 
 session_start();
 $loginError = '';
 $passwordError = '';
@@ -19,10 +19,10 @@ if (isset($_POST['uname']) && !empty($_POST['psw'])){
 			return;
 		}
 		else { 
-			$passwordError = 'Password does not match user';
+			$passwordError = 'Incorrect password, please enter correct password';
 		}
 	} else {
-		$loginError = 'username does not exist';
+		$loginError = 'Please enter valid username';
 	}	
 }
 ?>
