@@ -1,6 +1,8 @@
 <?php
-    $templates = array(1 => "CV", 2 => "Interview", 3 => "Technical Interview", 4 => "Medical Examination Result", 5 => "Final Decision");
+    include("dbConn.php");
 
+    $sql = "SELECT id, name FROM Templates";
+    $templateResults = $conn->query($sql);
     
 ?>
 
@@ -47,26 +49,12 @@
       
             <ol>
 
-                <li><a href="Generatefeedback.php">CV</a></li>
-                <br>
-            <li><a href="Generatefeedback.php">Interview</a></li>
-                <br>
-                <li><a href="Generatefeedback.php">Technical Interview</a></li>
-                <br>
-                <li><a href="Generatefeedback.php">Medical Examination Result</a></li>
-                <br>
-                <li><a href="Generatefeedback.php">Final Decision</a></li>
-                
-                
-            
-                
+<?php foreach ($templateResults as $template) { ?>
+                <li><a href="Generatefeedback.php?id=<?php echo $template['id']; ?>"><?php echo $template['name']; ?></a></li>
+                <br/>
+<?php } ?>
 
-                
-            
-
-            
             </ol>
-
-            
+  
 </body>
 </html>
