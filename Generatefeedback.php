@@ -1,6 +1,17 @@
-<?php include 'db.php'?>
-<?php mysqli_close($conn);?>
+<?php 
 
+include("dbConn.php");
+
+$id = $_GET['id'];
+
+$sql = "SELECT id, name FROM Templates WHERE id = ".$id;
+$templateQuery = $conn->query($sql);
+$template = $templateQuery->fetch();
+
+$reviewSql = "SELECT id, description FROM Review WHERE template_id = ".$id;
+$reviews = $conn->query($reviewSql);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +27,7 @@
         <div class="New">
         <h1>HappyTech Technology Company</h1>
 
-        <h3>CV Feedback</h3>
+        <h3><?php echo $template['name']; ?> Feedback</h3>
 
         <form action="TechEdit.php" method="POST">
     
@@ -41,7 +52,7 @@
        
         <br><br>
 
-        Date: <input type="date" name="date" placeholder="Date" required> 
+        Date: <input type="date" name="dates" placeholder="Date" required> 
         
         <br>
 
@@ -60,12 +71,9 @@
         </div>
 </header>
 
-    <p><input type="checkbox" name="review[]" value="Review A" /> Review A</p>
-    <p><input type="checkbox" name="review[]" value="Review B" /> Review B</p>
-    <p><input type="checkbox" name="review[]" value="Review C" /> Review C</p>
-                
-
-
+<?php foreach($reviews as $review) { ?>
+    <p><input type="checkbox" name="review[]" value="<?php echo $review['id']; ?>" /> <?php echo $review['description']; ?></p>
+<?php } ?>
     
 <h4>Feedback comment</h4>
 <textarea name="feedback" cols="50" rows="10" placeholder="Type Feedback Comment Here" >
