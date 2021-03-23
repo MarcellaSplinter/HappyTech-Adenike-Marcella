@@ -1,9 +1,14 @@
-
 <?php
-    $templates = array(1 => "CV", 2 => "Interview", 3 => "Technical Interview", 4 => "Medical Examination Result", 5 => "Final Decision");
+include("dbConn.php");
 
     $id = $_GET["id"];
-    $selectedTemplate = $templates[$id];
+
+    $sql = "SELECT id, name FROM Templates WHERE id = ".$id;
+    $templateResult = $conn->query($sql);
+    $template = $templateResult->fetch();
+
+    $reviewSQL = "SELECT id, description FROM Review WHERE template_id = ".$id;
+    $reviews = $conn->query($reviewSQL);
 ?>
 
 <!DOCTYPE html>
@@ -15,10 +20,12 @@
     <link rel="stylesheet" href="./Feedback.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
+        var counter=0;
+        var totalNumberofReviews=10;
         $(document).ready(function(e){
                 //variables
-
-                var html ='<div>Review: <textarea name="Review[]" id="childreview" col="3" row="10"></textarea><a href="#" id="remove">X</a></div>';
+counter=0;
+                var html ='<div> Review: <input type="text" name="review" placeholder="Write something..." size="75" /><a href="#" id="remove">X</a></div>';
                 
          
                 //Add Rows to the form
@@ -36,11 +43,33 @@
 
                 //populate value from the first row
         });
+
+        function AddTextField(num)
+        {
+               if(num < totalNumberofReviews)
+               {
+                var html ='<div> Review: <input type="text" name="review'+num+'" placeholder="Write something..." size="75" /><a href="#" id="remove">X</a></div>';
+                $("#addmore").append(html); 
+                counter+=1;  
+               }
+               else
+               {
+                       alert("Maximum number of reviews reached!");
+               }
+
+        }
+        function RemoveTextField(num)
+        {
+                var html ='<div> Review: <input type="text" name="review'+num+'" placeholder="Write something..." size="75" /><a href="#" id="remove">X</a></div>';
+                $("#addmore").append(html); 
+                counter-=1;  
+        }
         </script>
         
 </head>
 <body>
-    <h3>Edit <?php echo $selectedTemplate; ?> Template</h3>
+<form action="InterviewEdit.php" method="POST">
+    <h3>Edit <?php echo $template['name']; ?> Template</h3>
 
     <header>  
         <div class="New">
@@ -48,7 +77,7 @@
 
 <br>
         
-        <form action="InterviewEdit.php" method="POST">
+ 
     
         Candidate's FirstName: <input type="text" name="fname" id="Candidate Name"  placeholder="FirstName here" disabled>
         
@@ -91,16 +120,25 @@
 
 <h3>Add Review</h3>
 
+<?php if (isset($reviews) && !empty($reviews)) { 
+        foreach ($reviews as $review) {       
+?>
+<div>
+Review: <input type="text" name="review" placeholder="Write something..." value="<?php echo $review['description']; ?>" size="75" />
+</div>
+<?php } } ?>
+
 <div id="addmore">
-Review: <textarea name="Review[]" id="review" col="3" row="10"></textarea>
-<a href="#" id="add">Add More Review</a>
+Review: <input type="text" name="review" placeholder="Write something..." size="75" />
+<a href="#" onclick="AddTextField(counter)">Add More Review</a>
+
 </div>
 
 
 <br><br>
-<input type="submit" name="review" value="Save">  
-
-        </form>     
+<input type="submit" name="save"  value="Save"/>
+<input type="hidden" name='templateId' value="<?php echo $id; ?>" />
+        </form>        
 </body>
 </html>
 
