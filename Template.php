@@ -42,23 +42,24 @@ require_once 'templates.php'
                 
                 <td><?php echo $template['title']?></td>
                 <td> <a href="edit-template.php?id=<?php echo $template['id']?>"> Edit</a> /
-                     <a href="DeletedFeedback.html">Delete</a>
+                     <a href="deleteTemplate.php?id=<?php echo $template['id']?>">Delete</a>
                 </td>
             </tr>
             <?php endforeach;
             ?>
-            
-                
         </table>
-
-        <form action="createTemplate.php">
-            <input type="submit" value="Create Template">
-    </form>
-
-        
-
-        
-    </section>
+<br>
+<br>
+<hr>
+<br>
+<form action="createTemplate.php" name="updateForm" method="POST" >
+    <label>Title: </label><input type="textbox" name="title" placeholder="Enter the title here" >
+    <br>
+    <Label>Template Text: </Labe><input type="textbox" name="text" placeholder="Enter the template content here">
+    <input type="submit" value="Add Template">
+</form>  
+    
+</section>
 
 
 

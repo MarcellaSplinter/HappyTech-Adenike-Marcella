@@ -24,7 +24,7 @@ $template = getTemplateById ($_GET['id']);
         <h1>HappyTech Technology Company</h1>
         <a class="logout-button" href="logout.php" title="Logout"><img src="img/logout.png"/></a>
 
-        <form method = "POST" action = "edit-template.php?id=<?php echo $_GET ["id"] ?>"> 
+        <form method="POST" name="candidate" action="edit-template.php?id=<?php echo $_GET ["id"] ?>"> 
         
         <label for="Candidate Name">Candidate's First Name:</label>
         <input type="text" id="Candidate Name" placeholder="Candidate's First Name here" >
@@ -58,31 +58,17 @@ $template = getTemplateById ($_GET['id']);
 </div>
 
 </header>
-
+</form>
 <br><br>
 
-<h2>Kindly select comments to be included in the feedback from below:</h2>
+<h2>Kindly enter the template text to be included in the feedback form below:</h2>
 
-<ol>
-
-<li><label for="CV1">CV does not match</label>
-    <input name = "options[]" value="1" type="checkbox" id="CV1"></li>
-<li><label for="CV2">No relevant experience</label>
-    <input name = "options[]" value="2" type="checkbox" id="CV2"> </li>
-<li><label for="CV3">No relevant background</label>
-    <input name = "options[]" value="3" type="checkbox" id="CV3"></li>
-<li><label for="CV4">Health not suitable</label>
-    <input name = "options[]" value="4" type="checkbox" id="CV4"></li>
-<li><label for="CV5">Over Qualification</label>
-    <input name = "options[]" value="5" type="checkbox" id="CV5"></li>
-<li><label for="CV6">CV has  experience</label>
-    <input name = "options[]" value="6" type="checkbox" id="CV6"></li>
-
-</ol>
-
-
-
+<form action="updateTemplate.php?id=<?php echo $_GET ["id"] ?>" name="updateForm" method="POST" >
+    <label>Title: </label><input type="textbox" name="title" value="<?php echo $template['title'] ?? '' ?>" >
+    <br>
+    <Label>Template Text: </Labe><input type="textbox" name="text" value="<?php echo $template['contents'] ?>">
     <input type="submit" value="Save">
 </form>  
+
 </body>
 </html>
