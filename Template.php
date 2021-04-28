@@ -14,7 +14,7 @@ require_once 'templates.php'
                         <li><a href="Home.php">Home</a></li>
                 <li class="current"><a href="Template.php">Templates</a></li>
 
-                <li><a href="GenerateFeedback.html">Generate Feedback</a></li>
+                <li><a href="GenerateFeedback.php">Generate Feedback</a></li>
                 <li><a href="Candidate.html">Saved Feedback</a></li>
                 <li><a href="Department.html">Sent Feedback</a></li>
                 <li><a href="DeletedFeedback.html">Deleted Feedback</a></li>
