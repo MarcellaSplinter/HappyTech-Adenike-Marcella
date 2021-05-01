@@ -6,9 +6,8 @@ function getAllTemplates ()
     $query = "select * from templates";
 	$result = $connection ->query ($query)->fetch_all(MYSQLI_ASSOC);
     return $result;
-
-    
 }
+
 function getTemplateById ($id)            
 {
     global $connection;
@@ -39,3 +38,13 @@ function addNewTemplate($text, $title)
     $query = "insert into templates (title, contents) select '" . $title . "', '" . $text . "';";
 	$result = $connection ->query ($query);
 }
+
+function addFeedback($name, $content, $comments)
+{
+    global $connection;
+    $query = "insert into feedback (name_of_feedback, content_feedback, comments) select '" . $name . "', '" . $content . "', '" . $comments . "';";
+    $result = $connection ->query ($query);
+    return $connection->insert_id;
+        
+}
+
