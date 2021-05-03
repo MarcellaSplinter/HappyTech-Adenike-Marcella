@@ -1,33 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit <?php echo $template['title']?></title>
+    <link rel="stylesheet" href="./Feedback.css">
+</head>
+<body>
+    
 <?php
-require_once 'common.php';
-require_once 'templates.php'
-?>
-        
-            <div class="container">
-                <div id="Title">
-                    <h3>Candidates Feedback Application</h3>
-                </div>
-                
-                <nav>
-                    <ul>
-                        
-                        <li><a href="Home.php">Home</a></li>
-                <li class="current"><a href="Template.php">Templates</a></li>
+    require_once 'common.php';
+    require_once 'templates.php';
+?>      
+    <div class="container">
+        <div id="Title">
+        <h3>List of Templates:</h3>
+        </div>
 
-                <li><a href="GenerateFeedback.php">Generate Feedback</a></li>
-                <li><a href="Candidate.html">Saved Feedback</a></li>
-                <li><a href="Department.html">Sent Feedback</a></li>
-                <li><a href="DeletedFeedback.html">Deleted Feedback</a></li>
-
-
-                    </ul>
-                </nav>
-            </div>
-        </section>
-    </header>
-
-    <h3>List of Templates:</h3>
-        
         <table> 
             <thead>
             <th>S/N</th>
@@ -58,7 +48,7 @@ require_once 'templates.php'
     <Label>Template Text: </Labe><input type="textbox" name="text" placeholder="Enter the template content here">
     <input type="submit" value="Add Template">
 </form>  
-    
+</div>
 </section>
 
 

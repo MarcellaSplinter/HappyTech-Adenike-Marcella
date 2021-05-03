@@ -1,19 +1,3 @@
-<?php 
-
-require_once 'templates.php';
-
-$templates = getAllTemplates(); //ackOptions();
-
-//$id = $_GET['id'];
-
-//$sql = "SELECT template_id, name FROM Templates WHERE id = ".$id;
-//$templateQuery = $conn->query($sql);
-//$template = $templateQuery->fetch();
-
-//$reviewSql = "SELECT id, description FROM Review WHERE template_id = ".$id;
-//$reviews = [];
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,13 +9,25 @@ $templates = getAllTemplates(); //ackOptions();
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
 <body>
+<?php
+    require_once 'common.php';
+    require_once 'templates.php';
 
-<header> 
+$templates = getAllTemplates(); //ackOptions();
+
+//$id = $_GET['id'];
+
+//$sql = "SELECT template_id, name FROM Templates WHERE id = ".$id;
+//$templateQuery = $conn->query($sql);
+//$template = $templateQuery->fetch();
+
+//$reviewSql = "SELECT id, description FROM Review WHERE template_id = ".$id;
+//$reviews = [];
+?>
+
         <div class="New">
-        <h1>HappyTech Technology Company</h1>
-
         <form action="TechEdit.php" method="POST">
-       
+    
         Candidate's Firstname: <input type="text" name="fname" placeholder="Candidate's First Name here" required/>
         
         <br><br>
@@ -69,7 +65,7 @@ $templates = getAllTemplates(); //ackOptions();
         
      
         </div>
-</header>
+
 <br>
 <label>Select Template Text Type:</label>
 <select id="selectTemplate">

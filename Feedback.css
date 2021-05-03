@@ -17,8 +17,9 @@ body{
 
 ul{
     margin: 0%;
-    padding: 0%;
+    padding: 10px;
 }
+
 /* Header */
 
 
@@ -26,7 +27,7 @@ header{
     background: #f4f4f4;
     color: black;
     padding-top: 0%;
-    min-height: 100px;
+    min-height: 70px;
     border-bottom: #ffffff;
 
 
@@ -41,10 +42,8 @@ header a{
     header li{
         margin-left: 50px;
         display: inline;
-        
+        padding-top: 10px;
         margin-bottom: 0;
-
-        
     }
 
     header #Title{
@@ -71,18 +70,21 @@ header a{
         font-size: 60px;
         font-weight: bold;
         font-style: normal;
+        float: left;
+        width: 80%;
+    
         
 
     }
-
+  /*
     header nav{
-        margin-left: 20px;
+       margin-left: 20px;
         margin-top: 100px;
         
         
         
     }
-
+ */
     header .current a{
         color:orangered;
         font-weight: bold;
@@ -142,9 +144,19 @@ input a:hover{
 #table thead{
     font-size: 15px;
 }
+.logout-button img{    
+    width: 40px;
+    float: right;
+    /* margin:5px; */
+}
+form {
+    clear: both;
+}
 
-
-    
+.container {
+    clear: both;
+    margin:20px;
+}
 
 
 
