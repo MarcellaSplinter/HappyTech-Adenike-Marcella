@@ -25,7 +25,7 @@ echo "<br>";
 echo 'Feedback given: ' . $_POST['templateText'];
 echo "<br>";
 echo "<br>";
-echo 'Interviewer\'s information';
+echo 'Interviewer\\\'s information';
 echo "<br>";
 echo 'First Name: ' . $_POST['iname'];
 echo "<br>";
@@ -41,6 +41,7 @@ $feedbackId = addFeedback($name , $output, $_POST['templateText']);
 $mpdf->WriteHTML($output);
 $mpdf->Output('feedback/' . $name); 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

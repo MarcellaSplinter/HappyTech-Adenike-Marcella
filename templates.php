@@ -44,7 +44,6 @@ function addFeedback($name, $content, $comments)
     global $connection;
     $query = "insert into feedback (name_of_feedback, content_feedback, comments) select '" . $name . "', '" . $content . "', '" . $comments . "';";
     $result = $connection ->query ($query);
-    return $connection->insert_id;
         
 }
 
