@@ -9,38 +9,38 @@ $mpdf = new \Mpdf\Mpdf();
 ob_start();
 
 echo "Candidate Information";
-echo "\r\n";
-echo 'First Name:' . $_POST['fname'];
-echo "\r\n";
-echo 'Last Name:' . $_POST['lname'];
-echo "\r\n";
-echo 'Role Applied for:' . $_POST['role'];
-echo "\r\n";
-echo 'Position Applied for:' . $_POST['position'];
-echo "\r\n";
-echo 'Department:' . $_POST['department'];
-echo "\r\n";
-echo 'Date:' . isset($_POST['dates']) ? $_POST['dates'] : '';
-echo "\r\n";
-echo 'Interviewers information';
-echo "\r\n";
+echo "<br>";
+echo 'First Name: ' . $_POST['fname'];
+echo "<br>";
+echo 'Last Name: ' . $_POST['lname'];
+echo "<br>";
+echo 'Role Applied for: ' . $_POST['role'];
+echo "<br>";
+echo 'Position Applied for: ' . $_POST['position'];
+echo "<br>";
+echo 'Department: ' . $_POST['department'];
+echo "<br>";
+echo isset($_POST['dates']) ? 'Date: ' . $_POST['dates'] : 'Date: ';
+echo "<br>";
+echo 'Feedback given: ' . $_POST['templateText'];
+echo "<br>";
+echo "<br>";
+echo 'Interviewer\'s information';
+echo "<br>";
 echo 'First Name: ' . $_POST['iname'];
-echo "\r\n";
+echo "<br>";
 echo 'Last Name:' . $_POST['inname'];
 
 $output = ob_get_contents(); 
 echo $output;
 
 ob_end_clean();
+$name = $_POST['fname'] . '-' . date("YmdHi") . '.pdf';
 
-
-$feedbackId = addFeedback($_POST['fname'] . '.pdf' , $output, $_POST['templateText']);
+$feedbackId = addFeedback($name , $output, $_POST['templateText']);
 $mpdf->WriteHTML($output);
-$mpdf->Output('feedback/' . $feedbackId . '-' . $_POST['fname'].".pdf"); 
-
-
-?>;
-
+$mpdf->Output('feedback/' . $name); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,23 +51,24 @@ $mpdf->Output('feedback/' . $feedbackId . '-' . $_POST['fname'].".pdf");
     <link rel="stylesheet" href="./Feedback.css">
 </head>
 <body>
-<?php echo $_POST['fname'] ?>
-<?php echo "Candidate's information are:"; ?>
+    <?php
+        require_once 'common.php'
+    ?>
+<div class="container">
+        <div id="Title">
+        <h3>Feedback Output:</h3>
+        </div>
+
+<?php echo "Candidate information:"; ?>
 <h4> Candidate's FirstName: <?php echo $_POST['fname'] ?></h4>
-<?php echo "<br>" ?>
 <h4> Candidate's LastNmae: <?php echo $_POST['lname'] ?></h4>
-<?php echo "<br>" ?>
 <h4> Role Applied for: <?php echo $_POST['role'] ?></h4>
-<?php echo "<br>" ?>
 <h4>Position Applied for: <?php echo $_POST['position'] ?></h4>
-<?php echo "<br>" ?>
 <h4>Department: <?php echo $_POST['department'] ?></h4>
-<?php echo "<br>" ?>
+<h4>Feedback given: <?php echo  $_POST['templateText'] ?></h4>
 <h4>Date: <?php echo isset($_POST['dates']) ? $_POST['dates'] : ''; ?></h4>
-<?php echo "<br>" ?>
 <?php echo "Interviewer's information are:"?>
 <h4>Interviewer's FirstName: <?php echo $_POST['iname'] ?></h4>
-<?php echo "<br>" ?>
 <h4>Interviewer's LastName: <?php echo $_POST['inname'] ?></h4>
 
 <?php if (isset($_POST['save'])){
@@ -86,16 +87,6 @@ $mpdf->Output('feedback/' . $feedbackId . '-' . $_POST['fname'].".pdf");
 }
 
 ?>
-
-<?php echo "Feedback Commment:"?>
-<?php echo "<br>" ?>
-<?php echo $_POST['templateText'] ?>
-
-
-<?php echo $output ?>
-
-
-
-
+</div>
 </body>
 </html>

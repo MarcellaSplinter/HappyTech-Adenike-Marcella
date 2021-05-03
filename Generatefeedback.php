@@ -74,7 +74,6 @@ $templates = getAllTemplates(); //ackOptions();
 
     <option value="<?php echo $template['contents']?>"><?php echo $template['title']?></option>
    
-    }
     <?php } ?>
 </select>
 <script>

@@ -15,7 +15,7 @@ if (isset($_POST['uname']) && !empty($_POST['psw'])){
 			$_SESSION['loggedin'] = true;
     		$_SESSION['username'] = 'user';
 		
-			header("Location: Home.html"); 
+			header("Location: Home.php"); 
 			return;
 		}
 		else { 

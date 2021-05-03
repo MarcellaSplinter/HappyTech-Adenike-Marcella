@@ -48,3 +48,11 @@ function addFeedback($name, $content, $comments)
         
 }
 
+function getFeedback()
+{
+    global $connection;
+    $query = "select * from feedback;";
+	$result = $connection ->query ($query)->fetch_all(MYSQLI_ASSOC);
+    return $result;
+        
+}
