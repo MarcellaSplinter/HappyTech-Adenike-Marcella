@@ -36,6 +36,10 @@ $templates = getAllTemplates(); //ackOptions();
         
         <br><br>
 
+        Candidate's email: <input type="text" name="email" placeholder="Candidate's Last name here" required/>
+        
+        <br><br>
+
         Role Applied For: <input type="text" name="role" placeholder="Role" required/>
         
         <br><br>

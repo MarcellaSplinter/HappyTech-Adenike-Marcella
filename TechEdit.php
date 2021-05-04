@@ -40,6 +40,8 @@ $name = $_POST['fname'] . '-' . date("YmdHi") . '.pdf';
 $feedbackId = addFeedback($name , $output, $_POST['templateText']);
 $mpdf->WriteHTML($output);
 $mpdf->Output('feedback/' . $name); 
+sendMail($name,  $_POST['email']);
+
 ?>
 
 <!DOCTYPE html>
